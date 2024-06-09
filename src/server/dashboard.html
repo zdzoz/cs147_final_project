@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Dashboard</title>
+  <title>Doorboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -52,12 +52,14 @@
   </div>
 
   <script>
-    const countArr = {{data | tojson }};
+    const countArr = {{ data | tojson }};
+    const times = {{ times | tojson }};
 
     new Chart(document.getElementById('Dashboard'), {
       type: 'line',
       data: {
-        labels: [...Array(countArr.length).keys()],
+        // labels: [...Array(countArr.length).keys()],
+        labels: times,
         datasets: [{
           label: "Open Count",
           data: countArr,
@@ -75,13 +77,13 @@
             beginAtZero: true,
             title: {
               display: true,
-              text: 'Count'
+              text: 'Entry Count'
             }
           },
           x: {
             title: {
               display: true,
-              text: 'Time'
+              text: 'Timestamp'
             }
           }
         },

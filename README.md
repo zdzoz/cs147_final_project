@@ -1,5 +1,7 @@
 # Door Counter
 
+A device that tracks the number of times your door is opened
+
 ## Commands
 
 #### Show help
